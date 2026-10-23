@@ -11,9 +11,11 @@ Claude (concept, code, solver, level generator). Browser for playtesting. GitHub
 5. "It is worse. Fix all." -> rebuilt with bigger levels, blue/gold wall colours, shift pips, level menu with stars
 6. "Write gen.js: generate random mazes, keep only levels where the shift really matters (the solver's shortest path beats the no-shift path, and walls-always-on is unsolvable or longer)" -> 7 generated levels + 2 hand-made tutorial levels
 7. "Restyle to a glossy jungle mobile-game look from a reference image: logo badge, glass HUD, temple/crystal wall tiles, cartoon pug explorer, treasure-chest exit, glossy buttons, all drawn in CSS/SVG" -> final UI
+8. "Make it less wordy: blueprint-style how-to with 3D tiles, tilted 3D board with raised walls, particle sparkles, swap flash, confetti, fireflies" -> final polish
 
 ## When AI got it wrong
 - First build: levels were too small and easy (level 1 solved in 6 moves) and the dashed "next wall" preview was hard to read. Fixed with two wall colours (blue / gold), shift pips and a pulse on the last move before a shift.
+- White blob over the HUD: the wall-shine CSS also matched the shift gems. Found from a screenshot, fixed by scoping the rule.
 - First generator run hung the machine (search rules too strict for big mazes). Fixed by capping tries and relaxing the difficulty rule step by step.
 
 ## How we checked the AI's work

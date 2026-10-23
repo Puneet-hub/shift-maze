@@ -22,16 +22,16 @@ main{width:min(94vw,500px);position:relative;z-index:1}
 #phase{display:inline-block;padding:1px 8px;border-radius:99px;font-size:.62rem;letter-spacing:1px}
 #board{display:grid;padding:8px;border:6px solid #5aa9ff;border-radius:22px;background:linear-gradient(#a8662d,#6e3a14);width:100%;transition:border-color .25s,box-shadow .25s;box-shadow:0 7px 0 #3a1d08,0 0 22px rgba(90,169,255,.8),0 14px 26px rgba(0,0,0,.4)}
 #board.B{border-color:#ffc83a;box-shadow:0 7px 0 #3a1d08,0 0 22px rgba(255,200,58,.85),0 14px 26px rgba(0,0,0,.4)}
-#board.flip{animation:fl .3s}@keyframes fl{40%{transform:scale(1.03)}}
+#board.flip{animation:fl .3s}@keyframes fl{40%{transform:rotateX(14deg) scale(1.04)}}
 .c{aspect-ratio:1;position:relative;background:#f1d9a0;box-shadow:inset 0 0 0 1px rgba(150,100,30,.2)}
 .c:nth-child(odd){background:#ecd195}
-.k{background:linear-gradient(#9a97ad,#5d5a73);border-radius:7px;box-shadow:inset 0 3px 0 #c4c1d4,inset 0 -4px 0 #3e3b52,0 2px 0 rgba(0,0,0,.3);z-index:1}
+.k{background:linear-gradient(#9a97ad,#5d5a73);border-radius:7px;box-shadow:inset 0 3px 0 #c4c1d4,inset 0 -4px 0 #3e3b52,0 6px 0 #3e3b52,0 10px 10px rgba(0,0,0,.35);z-index:1}
 .k::before{content:"";position:absolute;left:0;right:0;top:0;height:30%;background:linear-gradient(#8be34a,#3fa535);border-radius:7px 7px 12px 12px}
 .a,.b{border-radius:9px;z-index:1;transition:all .2s}
 .a{background:rgba(90,170,255,.16);outline:3px dashed rgba(130,205,255,.95);outline-offset:-5px}
 .b{background:rgba(255,176,46,.18);outline:3px dashed rgba(255,150,30,.95);outline-offset:-5px}
-.a.on{background:linear-gradient(#9ff5ff,#3a8cff 55%,#2342c9);outline:none;box-shadow:inset 0 3px 0 #d9fcff,inset 0 -4px 0 #1b2f94,0 0 10px rgba(80,180,255,.9)}
-.b.on{background:linear-gradient(var(--gold1),var(--gold2) 55%,var(--gold3));outline:none;box-shadow:inset 0 3px 0 #fff3b8,inset 0 -4px 0 #9a5208,0 0 10px rgba(255,190,50,.9)}
+.a.on{background:linear-gradient(#9ff5ff,#3a8cff 55%,#2342c9);outline:none;box-shadow:inset 0 3px 0 #d9fcff,inset 0 -4px 0 #1b2f94,0 6px 0 #1b2f94,0 0 12px rgba(80,180,255,.9)}
+.b.on{background:linear-gradient(var(--gold1),var(--gold2) 55%,var(--gold3));outline:none;box-shadow:inset 0 3px 0 #fff3b8,inset 0 -4px 0 #9a5208,0 6px 0 #9a5208,0 0 12px rgba(255,190,50,.9)}
 .a.on::after,.b.on::after{content:"";position:absolute;left:14%;top:12%;width:42%;height:22%;border-radius:50%;background:rgba(255,255,255,.6);transform:rotate(-20deg)}
 .soon .c.a:not(.on),.soon .c.b:not(.on){animation:pu .45s infinite alternate}@keyframes pu{to{background-color:rgba(255,255,255,.55)}}
 .e::before{content:"";position:absolute;inset:4%;z-index:2;background:var(--chest) center/100% 100% no-repeat;animation:gl .9s ease-in-out infinite alternate}
@@ -48,6 +48,34 @@ button.ghost{background:linear-gradient(#8fb4ff,#3c5bd0);border-color:#1b2f94;te
 .top{display:flex;align-items:center;gap:12px}.mascot{width:84px;height:84px;flex:none;background:var(--cat) center/100% 100% no-repeat;filter:drop-shadow(0 4px 0 rgba(0,0,0,.25))}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.grid button{display:flex;flex-direction:column;align-items:center;font-size:1.3rem;padding:6px}
 .grid button:disabled{background:linear-gradient(#cfc8b4,#9a9380);border-color:#5d5848;text-shadow:none;color:#6b6554;cursor:not-allowed}.grid span{font:700 .6rem Nunito,sans-serif;letter-spacing:1px;text-shadow:none}
+.leg{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin-top:12px;padding:8px 10px;background:rgba(8,28,70,.55);border:3px solid rgba(255,255,255,.35);border-radius:16px;font-size:.78rem}
+.leg span{display:flex;align-items:center;gap:6px}.leg .c{width:24px;flex:none;border-radius:6px}
+.how{display:flex;flex-direction:column;gap:10px}.how .row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.55);border:3px solid #c98430;border-radius:14px;padding:6px 10px;line-height:1.3;font-size:.9rem}
+.how .pic{display:flex;gap:6px;align-items:center;flex:none;min-width:98px}.how .c{width:44px;flex:none;border-radius:8px}.how .arrow{font:400 1.4rem 'Lilita One',sans-serif;color:#8a4b05}
+.how .gem{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7c2,#ffb02e 55%,#d7780f);border:2px solid #8a4b05;box-shadow:0 0 8px #ffd54a}
+main{perspective:1100px}
+#board{transform:rotateX(14deg);transform-origin:50% 100%}
+@keyframes bump{25%{transform:rotateX(14deg) translateX(-6px)}75%{transform:rotateX(14deg) translateX(6px)}}
+#board.bump{animation:bump .25s}
+.pop{animation:pop .35s}@keyframes pop{0%{transform:translateY(10px) scale(.6);opacity:.4}60%{transform:translateY(-5px) scale(1.12)}100%{transform:none;opacity:1}}
+.fx,.cf{position:fixed;pointer-events:none;z-index:50}
+.fx{width:9px;height:9px;margin:-4px;animation:fx .7s ease-out forwards}@keyframes fx{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+.cf{width:10px;height:14px;top:-20px;animation:cf 2s ease-in forwards}@keyframes cf{to{transform:translate(var(--dx),115vh) rotate(720deg)}}
+#pulse{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:0;background:radial-gradient(circle at 50% 50%,transparent 40%,var(--pc,rgba(90,169,255,.6)) 100%)}
+#pulse.go{animation:pl .55s}@keyframes pl{30%{opacity:1}100%{opacity:0}}
+.ff{position:fixed;width:6px;height:6px;border-radius:50%;background:#fff7a8;box-shadow:0 0 10px 4px rgba(255,235,120,.8);z-index:0;animation:ff 6s ease-in-out infinite alternate}@keyframes ff{to{transform:translate(var(--fx),var(--fy));opacity:.15}}
+#ov.bp{color:#e8f6ff;background-color:#0d3b8c;background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:96px 96px,96px 96px,24px 24px,24px 24px;border-color:#8fd3ff;box-shadow:inset 0 0 0 3px #0d3b8c,inset 0 0 0 5px #8fd3ff,0 8px 0 #06214f,0 18px 40px rgba(0,0,0,.55)}
+#ov.bp h2{color:#fff;text-shadow:0 0 12px #5ac8ff,0 3px 0 #06214f}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+.step{border:2px dashed #8fd3ff;border-radius:12px;padding:12px 4px 8px;text-align:center;background:rgba(6,33,79,.5);position:relative}
+.step .n{position:absolute;left:-7px;top:-11px;background:#8fd3ff;color:#06214f;font:400 .9rem 'Lilita One',sans-serif;width:24px;height:24px;border-radius:50%;display:grid;place-items:center}
+.stage{height:88px;display:flex;align-items:center;justify-content:center;gap:4px;transform:perspective(260px) rotateX(36deg)}
+.stage .c{width:34px;flex:none;border-radius:6px;animation:bob 1.4s ease-in-out infinite alternate}.stage .c:nth-child(2){animation-delay:.3s}@keyframes bob{to{transform:translateY(-6px)}}
+.step b{display:block;font:400 1.3rem 'Lilita One',sans-serif;letter-spacing:1px;margin-top:4px;color:#fff;text-shadow:0 0 8px #5ac8ff}
+.step small{display:block;font-size:.68rem;opacity:.85;text-transform:uppercase;letter-spacing:1px}
+.key{font:400 .85rem 'Lilita One',sans-serif;background:#fff;color:#06214f;padding:6px 10px;border-radius:8px;box-shadow:0 5px 0 #8fd3ff,0 8px 0 #06214f}
+.gems{display:flex;align-items:center;gap:8px;justify-content:center;border:2px dashed #8fd3ff;border-radius:12px;padding:6px;background:rgba(6,33,79,.5)}.gems .gem{width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff7c2,#ffb02e 55%,#d7780f);border:2px solid #8a4b05;box-shadow:0 0 8px #ffd54a}
+@media (prefers-reduced-motion:reduce){.ff,.fx,.cf{display:none}*{animation-duration:.01s!important}}
 </style></head><body><main>
 <div class="logo"><b>SHIFT</b><small>MAZE</small></div><p class="cap" id="cap"></p>
 <div class="hud"><div>Level<b id="lv"></b></div><div>Moves<b id="mv"></b></div><div>Par<b id="par"></b></div>
@@ -55,8 +83,9 @@ button.ghost{background:linear-gradient(#8fb4ff,#3c5bd0);border-color:#1b2f94;te
 <div id="board" aria-label="Maze board"></div>
 <div class="bar"><button data-k="ArrowUp" aria-label="Up">&#9650;</button><button data-k="ArrowLeft" aria-label="Left">&#9664;</button><button data-k="ArrowDown" aria-label="Down">&#9660;</button><button data-k="ArrowRight" aria-label="Right">&#9654;</button>
 <button data-k=" ">Wait</button><button data-k="z">Undo</button><button data-k="r">Restart</button><button class="ghost" data-k="m">Menu</button><button class="ghost" id="mu">Music: off</button></div>
-<p class="hint">Arrows or WASD to move. Space waits (counts as a move). Z undo, R restart. Solid blue or gold blocks are walls now. Dashed ones become walls after the next shift. Reach the treasure chest.</p>
-<div id="ov"></div></main>
+<div class="leg"><span><i class="c p"></i>You</span><span><i class="c e"></i>Goal</span><span><i class="c a on"></i>Wall now</span><span><i class="c a"></i>Next wall</span></div>
+<p class="hint">Arrows or WASD move. Space waits. Z undo. R restart.</p>
+<div id="ov"></div></main><div id="pulse"></div>
 <script>
 /*LEVELS*/
 const LEVELS = [["#######", "#S.a.E#", "#.###.#", "#.....#", "#######"], ["#######", "#S.#..#", "#.#a#.#", "#.#.#E#", "#.....#", "#######"], ["#######", "#S....#", "#.##b.#", "###ba.#", "#.a..a#", "#.b.aE#", "#######"], ["#########", "#S.bb.ab#", "#..a.#.##", "#a#...#.#", "#.##..bb#", "#a.a#.a.#", "#.....a.#", "#ba.a.#E#", "#########"], ["#########", "#S..b.###", "#..ab.#.#", "###.....#", "#..#b##b#", "#a..##bb#", "#b.b#...#", "#.a.a#.E#", "#########"], ["#########", "#S.#..b##", "##.b.aa.#", "#.b.a#a.#", "#.a....b#", "####.a.a#", "#a.#..a##", "###aa#.E#", "#########"], ["###########", "#S.....#b.#", "#.#b.....b#", "##a..a.bb.#", "#......#..#", "#...#.ab.a#", "#...a.ab.a#", "#...#.#.bb#", "#a#.b#bb..#", "#....#...E#", "###########"], ["###########", "#S#.#a.b#.#", "#a.b..#...#", "##...b..a.#", "##.##...aa#", "##a#ba##.b#", "#a#.b..bba#", "#b.a#.#.#.#", "#....#.a..#", "##b.#aa#.E#", "###########"], ["###########", "#Sb..a.#b##", "##....#.#b#", "#..####b.##", "#....#.b.b#", "#....#.##.#", "#a.b.bb#..#", "#b...aba#.#", "#aa..aa.#a#", "#..##..#aE#", "###########"]];
@@ -66,7 +95,7 @@ const svgUrl=x=>`url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http:
 const CAT=svgUrl(`<ellipse cx='14' cy='28' rx='9' ry='14' fill='#6b4226' stroke='#3a2410' stroke-width='2' transform='rotate(22 14 28)'/><ellipse cx='50' cy='28' rx='9' ry='14' fill='#6b4226' stroke='#3a2410' stroke-width='2' transform='rotate(-22 50 28)'/><circle cx='32' cy='37' r='22' fill='#e9c595' stroke='#5a3a1e' stroke-width='2.5'/><ellipse cx='32' cy='47' rx='13' ry='9.5' fill='#6b4a2e'/><ellipse cx='32' cy='43' rx='5.5' ry='3.8' fill='#241410'/><path d='M26 50q6 6 12 0' fill='none' stroke='#e9c595' stroke-width='2' stroke-linecap='round'/><circle cx='23' cy='34' r='7.5' fill='#fff' stroke='#3a2410' stroke-width='1.5'/><circle cx='41' cy='34' r='7.5' fill='#fff' stroke='#3a2410' stroke-width='1.5'/><circle cx='24.5' cy='35' r='4.4' fill='#2b1a10'/><circle cx='39.5' cy='35' r='4.4' fill='#2b1a10'/><circle cx='26' cy='33' r='1.7' fill='#fff'/><circle cx='41' cy='33' r='1.7' fill='#fff'/><ellipse cx='32' cy='19' rx='23' ry='6' fill='#8a5a2b' stroke='#4a2c12' stroke-width='2'/><path d='M17 19Q19 4 32 4Q45 4 47 19Z' fill='#b07a3f' stroke='#4a2c12' stroke-width='2'/><rect x='18' y='13' width='28' height='5' fill='#3a2410'/>`);
 const CHEST=svgUrl(`<rect x='8' y='28' width='48' height='26' rx='4' fill='#a8641f' stroke='#4a2608' stroke-width='3'/><path d='M8 30Q8 10 32 10Q56 10 56 30Z' fill='#c98430' stroke='#4a2608' stroke-width='3'/><rect x='14' y='12' width='6' height='42' fill='#ffd54a' stroke='#8a4b05' stroke-width='1.5'/><rect x='44' y='12' width='6' height='42' fill='#ffd54a' stroke='#8a4b05' stroke-width='1.5'/><rect x='26' y='25' width='12' height='15' rx='3' fill='#ffd54a' stroke='#8a4b05' stroke-width='2'/><circle cx='32' cy='31' r='2.4' fill='#3a1d08'/><rect x='31' y='32' width='2' height='5' fill='#3a1d08'/><path d='M54 4l2 5 5 2-5 2-2 5-2-5-5-2 5-2z' fill='#fff'/><path d='M8 8l1.5 3.5 3.5 1.5-3.5 1.5L8 18l-1.5-3.5L3 13l3.5-1.5z' fill='#fff'/>`);
 document.documentElement.style.setProperty('--cat',CAT);document.documentElement.style.setProperty('--chest',CHEST);
-const CAPS=["Every 3 moves the walls swap. Blue walls are solid now. Try waiting with Space.","Gold walls appear after the shift. Time your step through the gap.","A longer maze. The dashed walls show what the next shift will do."];
+const CAPS=["Reach the chest. Walls swap every 3 moves.","Gold walls appear after the shift.","Dashed blocks show the next swap."];
 const SHIFT=3,$=id=>document.getElementById(id),open_=()=>$('ov').classList.contains('on');
 const layoutAt=m=>Math.floor(m/SHIFT)%2;
 const wallIn=(c,L)=>c==='#'||(c==='a'&&L===0)||(c==='b'&&L===1);
@@ -82,34 +111,53 @@ const PAR=LEVELS.map((_,i)=>solve(parse(i)));
 let best={};try{best=JSON.parse(localStorage.getItem('shiftmaze')||'{}')}catch(e){}
 const save=()=>{try{localStorage.setItem('shiftmaze',JSON.stringify(best))}catch(e){}};
 let li=0,g,st,hist;
-function load(i){li=i;g=parse(i);st={x:g.s[0],y:g.s[1],m:0};hist=[];render(false);$('cap').textContent=CAPS[i]||'Plan around the shift. Wait when you need to.'}
+function load(i){li=i;g=parse(i);st={x:g.s[0],y:g.s[1],m:0};hist=[];render(false);$('cap').textContent=CAPS[i]||'Plan around the shift.'}
 function render(flip){
   const b=$('board'),L=layoutAt(st.m),left=SHIFT-(st.m%SHIFT);
   b.style.gridTemplateColumns=`repeat(${g.w},1fr)`;b.className=(L?'B':'A')+(left===1?' soon':'');
   let h='';for(let y=0;y<g.h;y++)for(let x=0;x<g.w;x++){const ch=g.cells[y][x];let c='c';
     if(ch==='#')c+=' k';else if(ch==='a')c+=' a'+(L===0?' on':'');else if(ch==='b')c+=' b'+(L===1?' on':'');
     if(x===g.e[0]&&y===g.e[1])c+=' e';if(x===st.x&&y===st.y)c+=' p';h+=`<div class="${c}"></div>`}
-  b.innerHTML=h;if(flip)b.classList.add('flip');
+  b.innerHTML=h;if(flip){b.classList.add('flip');b.querySelectorAll('.on').forEach(e=>e.classList.add('pop'))}
   $('lv').textContent=(li+1)+'/'+LEVELS.length;$('mv').textContent=st.m;$('par').textContent=PAR[li];
   [...$('pips').children].forEach((p,i)=>p.classList.toggle('on',i<left));
   const ph=$('phase');ph.textContent=L?'GOLD walls on':'BLUE walls on';ph.style.background=L?'var(--gold)':'var(--blue)';ph.style.color=L?'var(--ink)':'#fff'}
 function move(dx,dy){if(open_())return;const nx=st.x+dx,ny=st.y+dy,m2=st.m+1,c=g.cells[ny]?.[nx];
-  if(!c||wallIn(c,layoutAt(st.m))||wallIn(c,layoutAt(m2)))return blip(110,.12);
-  hist.push({...st});st={x:nx,y:ny,m:m2};const sh=m2%SHIFT===0;blip(sh?560:330);render(sh);
+  if(!c||wallIn(c,layoutAt(st.m))||wallIn(c,layoutAt(m2)))return(blip(110,.12),bump());
+  hist.push({...st});st={x:nx,y:ny,m:m2};const sh=m2%SHIFT===0;blip(sh?560:330);render(sh);fxMove(sh);
   if(nx===g.e[0]&&ny===g.e[1])win()}
 function undo(){if(hist.length&&!open_()){st=hist.pop();blip(220);render(false)}}
 const head=(t,p)=>`<div class="top"><div class="mascot"></div><h2>${t}</h2></div><p>${p}</p>`;
-function overlay(t,p,btns){const o=$('ov');o.innerHTML=head(t,p)+'<div class="bar" id="ob"></div>';
+function overlay(t,p,btns){const o=$('ov');o.classList.remove('bp');o.innerHTML=head(t,p)+'<div class="bar" id="ob"></div>';
   btns.forEach(([l,f,gh])=>{const b=document.createElement('button');b.textContent=l;if(gh)b.className='ghost';b.onclick=()=>{o.classList.remove('on');f()};$('ob').appendChild(b)});
   o.classList.add('on');$('ob').firstChild.focus()}
-function win(){jingle();const m=st.m,p=PAR[li];if(!best[li]||m<best[li])best[li]=m;save();
+function win(){jingle();confetti();const m=st.m,p=PAR[li];if(!best[li]||m<best[li])best[li]=m;save();
   const msg=`Solved in ${m} moves. Par is ${p}. `+(m<=p?'Perfect, you matched the solver!':`The solver needs ${p}, can you?`);
   const last=li===LEVELS.length-1;
   overlay(last?'You escaped!':'Level clear',msg,[[last?'Level menu':'Next level',()=>last?menu():load(li+1)],['Retry',()=>load(li),1],['Menu',menu,1]])}
-function menu(){const o=$('ov');o.innerHTML=head('Shift Maze','A classic maze, but every 3 moves the walls swap places. Plan your path around the shift.')+'<div class="grid" id="gr"></div>';
+function howto(){const o=$('ov');o.classList.add('bp');
+  o.innerHTML=`<div class="top"><div class="mascot"></div><h2>How to play</h2></div>
+  <div class="steps">
+   <div class="step"><span class="n">1</span><div class="stage"><i class="c p"></i><i class="c e"></i></div><b>GO</b><small>reach the chest</small></div>
+   <div class="step"><span class="n">2</span><div class="stage"><i class="c a on"></i><i class="c b on"></i></div><b>SWAP</b><small>every 3 moves</small></div>
+   <div class="step"><span class="n">3</span><div class="stage"><i class="c a"></i><span class="key">SPACE</span></div><b>WAIT</b><small>dashed = next wall</small></div>
+  </div>
+  <div class="gems"><i class="gem"></i><i class="gem"></i><i class="gem"></i><span>gems = moves until swap</span></div>
+  <div class="bar" id="ob"></div>`;
+  const b=document.createElement('button');b.textContent="Got it, play!";b.onclick=()=>{try{localStorage.setItem('shiftmaze_seen','1')}catch(e){}menu()};$('ob').appendChild(b);
+  o.classList.add('on');b.focus()}
+function menu(){const o=$('ov');o.classList.remove('bp');o.innerHTML=head('Shift Maze','A classic maze, but every 3 moves the walls swap places. Plan your path around the shift.')+'<div class="grid" id="gr"></div>';
   LEVELS.forEach((_,i)=>{const b=document.createElement('button'),ok=i===0||best[i-1];b.disabled=!ok;
     b.innerHTML=`${i+1}<span>${ok?(best[i]?(best[i]<=PAR[i]?'\u2605 PAR':best[i]+' MOVES'):'NEW'):'LOCKED'}</span>`;b.onclick=()=>{o.classList.remove('on');load(i)};o.querySelector('#gr').appendChild(b)});
+  const hb=document.createElement('button');hb.className='ghost';hb.textContent='How to play';hb.onclick=howto;const w=document.createElement('div');w.className='bar';w.appendChild(hb);o.appendChild(w);
   o.classList.add('on')}
+// ---- effects ----
+function burst(x,y,n,cols){for(let i=0;i<n;i++){const e=document.createElement('i');e.className='fx';e.style.cssText=`left:${x}px;top:${y}px;background:${cols[i%cols.length]};--dx:${(Math.random()-.5)*130}px;--dy:${-20-Math.random()*80}px`;document.body.appendChild(e);setTimeout(()=>e.remove(),750)}}
+function confetti(){const cols=['#ffd54a','#5aa9ff','#8be34a','#ff7a7a','#fff'];for(let i=0;i<70;i++){const e=document.createElement('i');e.className='cf';e.style.cssText=`left:${Math.random()*100}vw;background:${cols[i%5]};--dx:${(Math.random()-.5)*300}px;animation-delay:${Math.random()*.5}s`;document.body.appendChild(e);setTimeout(()=>e.remove(),2700)}}
+function pulse(){const p=$('pulse');p.style.setProperty('--pc',layoutAt(st.m)?'rgba(255,190,50,.6)':'rgba(90,169,255,.6)');p.classList.remove('go');void p.offsetWidth;p.classList.add('go')}
+function bump(){const b=$('board');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+function fxMove(sh){const pc=$('board').querySelector('.p');if(pc){const r=pc.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,sh?12:5,sh?['#7fd3ff','#ffd54a','#fff']:['#ffe27a','#fff'])}if(sh)pulse()}
+for(let i=0;i<14;i++){const e=document.createElement('i');e.className='ff';e.style.cssText=`left:${Math.random()*100}vw;top:${Math.random()*100}vh;--fx:${(Math.random()-.5)*160}px;--fy:${(Math.random()-.5)*160}px;animation-delay:${-Math.random()*6}s;animation-duration:${4+Math.random()*4}s`;document.body.appendChild(e)}
 // ---- sound + chiptune loop ----
 let ac;const ctx=()=>ac=ac||new(window.AudioContext||window.webkitAudioContext)();
 function blip(f,d=.07,type='square',vol=.05){try{const c=ctx(),o=c.createOscillator(),v=c.createGain();o.type=type;o.frequency.value=f;v.gain.value=vol;o.connect(v);v.connect(c.destination);o.start();o.stop(c.currentTime+d)}catch(e){}}
@@ -120,5 +168,5 @@ function key(k){k=k.toLowerCase();const d={arrowup:[0,-1],w:[0,-1],arrowdown:[0,
   if(d)move(...d);else if(k===' ')move(0,0);else if(k==='z')undo();else if(k==='m'&&!open_())menu();else if(k==='r'&&!open_())load(li)}
 addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault();key(e.key)});
 document.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>key(b.dataset.k));
-load(0);menu();
+load(0);let seen=false;try{seen=!!localStorage.getItem("shiftmaze_seen")}catch(e){}seen?menu():howto();
 </script></body></html>
